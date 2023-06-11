@@ -20,9 +20,18 @@ namespace Timer
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<string> hours = new List<string>();          
+        List<string> minutes = new List<string>();
         public MainWindow()
         {
             InitializeComponent();
+            for (int i = 0; i <= 23; i++)
+                hours.Add(string.Format("{0:00}", i));
+            for (int i = 0; i <= 59; i++)
+                minutes.Add(string.Format("{0:00}", i));
+
+            cmbHour.ItemsSource = hours;
+            cmbMin.ItemsSource = minutes;
         }
     }
 }
