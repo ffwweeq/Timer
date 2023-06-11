@@ -14,7 +14,7 @@
         <Button x:Name="btnCancelAlert" Content="取消鬧鐘" HorizontalAlignment="Left" Margin="196,305,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.133,-0.267" Height="32" Width="108"/>
         <ComboBox x:Name="cmbHour" HorizontalAlignment="Left" Margin="326,310,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="cmbMin" HorizontalAlignment="Left" Margin="460,310,0,0" VerticalAlignment="Top" Width="54"/>
-        <MediaElement x:Name="meSound" HorizontalAlignment="Left" Height="78" Margin="537,305,0,0" VerticalAlignment="Top" Width="135" RenderTransformOrigin="0.5,0.5">
+        <MediaElement x:Name="meSound" HorizontalAlignment="Left" Height="78" Margin="537,305,0,0" VerticalAlignment="Top" Width="135" RenderTransformOrigin="0.5,0.5" Source="/alert.wav" Volume="1">
             <MediaElement.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

@@ -62,6 +62,25 @@ namespace Timer
                 timerAlert.Stop(); 
             }
         }
+        private void btnSetAlert_Click(object sender, RoutedEventArgs e)
+        {
+            timerAlert.Start(); 
+            btnSetAlert.IsEnabled = false;
+            btnCancelAlert.IsEnabled = true;
+            strSelectTime = cmbHour.SelectedItem + ":" + cmbMin.SelectedItem; 
+        }
 
+        private void btnCancelAlert_Click(object sender, RoutedEventArgs e)
+        {
+            meSound.LoadedBehavior = MediaState.Stop;
+            timerAlert.Stop(); 
+            btnSetAlert.IsEnabled = true;
+            btnCancelAlert.IsEnabled = false;
+        }
+        private void meSound_MediaEnded(object sender, RoutedEventArgs e)
+{
+    meSound.Position = new TimeSpan(0, 0, 1); 
+    meSound.LoadedBehavior = MediaState.Play;
+}
     }
 }
