@@ -35,15 +35,33 @@ namespace Timer
             cmbHour.ItemsSource = hours;
             cmbMin.ItemsSource = minutes;
 
-            timer.Interval = TimeSpan.FromSeconds(1);   // 這個計時器設定每一個刻度為1秒
-            timer.Tick += new EventHandler(timer_tick); // 每一個時間刻度設定一個小程序timer_tick
-            timer.Start(); // 啟動這個計時器
+            timer.Interval = TimeSpan.FromSeconds(1);   
+            timer.Tick += new EventHandler(timer_tick); 
+            timer.Start(); 
         }
         private void timer_tick(object sender, EventArgs e)
         {
-            txtTime.Text = DateTime.Now.ToString("HH:mm:ss");    // 顯示時間
-            txtDate.Text = DateTime.Now.ToString("yyyy-MM-dd");  // 顯示日期
-            txtWeekDay.Text = DateTime.Now.ToString("dddd");     // 顯示星期幾
+            txtTime.Text = DateTime.Now.ToString("HH:mm:ss");   
+            txtDate.Text = DateTime.Now.ToString("yyyy-MM-dd");  
+            txtWeekDay.Text = DateTime.Now.ToString("dddd");     
         }
+
+        string strSelectTime = ""; 
+        DispatcherTimer timerAlert = new DispatcherTimer(); 
+                                                           
+        timerAlert.Interval = TimeSpan.FromSeconds(1);       
+        timerAlert.Tick += new EventHandler(timerAlert_tick); 
+
+        
+        private void timerAlert_tick(object sender, EventArgs e)
+        {
+          
+            if (strSelectTime == DateTime.Now.ToString("HH:mm"))
+            {
+                meSound.LoadedBehavior = MediaState.Play; 
+                timerAlert.Stop(); 
+            }
+        }
+
     }
 }
