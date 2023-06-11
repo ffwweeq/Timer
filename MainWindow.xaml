@@ -7,6 +7,23 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TextBox x:Name="txtTime" HorizontalAlignment="Left" Margin="63,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="671" Height="146"/>
+        <TextBox x:Name="txtDate" HorizontalAlignment="Left" Margin="63,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" Height="89"/>
+        <TextBox x:Name="txtWeekDay" HorizontalAlignment="Left" Margin="537,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" Height="89"/>
+        <Button x:Name="btnSetAlert" Content="設定鬧鐘" HorizontalAlignment="Left" Margin="63,305,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.133,-0.267" Height="32" Width="108"/>
+        <Button x:Name="btnCancelAlert" Content="取消鬧鐘" HorizontalAlignment="Left" Margin="196,305,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.133,-0.267" Height="32" Width="108"/>
+        <ComboBox x:Name="cmbHour" HorizontalAlignment="Left" Margin="326,310,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cmbMin" HorizontalAlignment="Left" Margin="460,310,0,0" VerticalAlignment="Top" Width="54"/>
+        <MediaElement x:Name="meSound" HorizontalAlignment="Left" Height="78" Margin="537,305,0,0" VerticalAlignment="Top" Width="135" RenderTransformOrigin="0.5,0.5">
+            <MediaElement.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.368"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </MediaElement.RenderTransform>
+        </MediaElement>
+
     </Grid>
 </Window>
