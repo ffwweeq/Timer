@@ -41,27 +41,28 @@ namespace Timer
         }
         private void timer_tick(object sender, EventArgs e)
         {
+
             txtTime.Text = DateTime.Now.ToString("HH:mm:ss");   
             txtDate.Text = DateTime.Now.ToString("yyyy-MM-dd");  
             txtWeekDay.Text = DateTime.Now.ToString("dddd");     
+
         }
 
-        string strSelectTime = ""; 
-        DispatcherTimer timerAlert = new DispatcherTimer(); 
-                                                           
-        timerAlert.Interval = TimeSpan.FromSeconds(1);       
-        timerAlert.Tick += new EventHandler(timerAlert_tick); 
-
-        
+        string strSelectTime = "";
+        DispatcherTimer timerAlert = new DispatcherTimer();
         private void timerAlert_tick(object sender, EventArgs e)
         {
-          
+
+            timerAlert.Interval = TimeSpan.FromSeconds(1);
+            timerAlert.Tick += new EventHandler(timerAlert_tick);
+
             if (strSelectTime == DateTime.Now.ToString("HH:mm"))
             {
-                meSound.LoadedBehavior = MediaState.Play; 
-                timerAlert.Stop(); 
+                meSound.LoadedBehavior = MediaState.Play;
+                timerAlert.Stop();
             }
         }
+
         private void btnSetAlert_Click(object sender, RoutedEventArgs e)
         {
             timerAlert.Start(); 
@@ -78,9 +79,10 @@ namespace Timer
             btnCancelAlert.IsEnabled = false;
         }
         private void meSound_MediaEnded(object sender, RoutedEventArgs e)
-{
-    meSound.Position = new TimeSpan(0, 0, 1); 
-    meSound.LoadedBehavior = MediaState.Play;
-}
+        {
+             meSound.Position = new TimeSpan(0, 0, 1); 
+             meSound.LoadedBehavior = MediaState.Play;
+        }
+
     }
 }
